@@ -2,16 +2,16 @@ import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { fetchComments } from "../api/fetch";
+import ApiErrorBoundary from "../boundary/ApiErrorBoundary";
+import ApiComments from "../component/ApiComments";
 
 export const Home = () => {
-  const { data, isLoading, isError, error } = useQuery("comments", fetchComments);
-
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) throw error;
 
   return (
     <div className="flex w-[100vw] flex-col h-[100vh] text-[20px] items-center justify-center">
-      {data.length} comments loaded.
+      <ApiErrorBoundary>
+        <ApiComments/>
+      </ApiErrorBoundary>
     </div>
   );
 };
