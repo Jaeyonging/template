@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Home } from "./routes/Home";
 import "./App.css";
 import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "./component/ErrorFallback";
+import { ErrorFallback } from "./boundary/ErrorFallback";
 
 function App() {
   return (
