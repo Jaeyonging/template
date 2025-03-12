@@ -1,16 +1,15 @@
-import React from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
-import { fetchComments } from "../api/fetch";
 import ApiErrorBoundary from "../boundary/ApiErrorBoundary";
-import ApiComments from "../component/ApiComments";
+import CommentFetcher from "../api/hooks/CommentFetcher";
+import CommentsListContainer from "../component/CommentsListContainer";
 
 export const Home = () => {
 
   return (
     <div className="flex w-[100vw] flex-col h-[100vh] text-[20px] items-center justify-center">
       <ApiErrorBoundary>
-        <ApiComments/>
+        <CommentFetcher>
+          <CommentsListContainer/>
+        </CommentFetcher>
       </ApiErrorBoundary>
     </div>
   );
