@@ -5,7 +5,7 @@ import useFetchDataStore from '../store/data'
 const CommentsListContainer = () => {
   const {data} = useFetchDataStore()
   return (
-    <div>
+    <div className='bg-[blue]'>
       {data.map((item:any)=>{
         return <div key={item.id}>{item.name}</div>
       })}

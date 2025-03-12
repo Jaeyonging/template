@@ -11,7 +11,7 @@ export const GlobalErrorFallback = ({ error, resetErrorBoundary }: { error: Erro
       {error.message != 'Network Error' ? (
         <>
           <span className="text-white  text-center">데이터를 불러오는데 에러가 발생하였습니다. </span>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded" onClick={resetErrorBoundary}>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-sm" onClick={resetErrorBoundary}>
             홈으로 돌아가기
           </button>
         </>
