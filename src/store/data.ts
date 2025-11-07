@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
 interface FetchDataState {
-  data: any; 
-  setData: (newData: any) => void;
-  resetData: () => void;
+    data: any;
+    setData: (newData: any) => void;
+    resetData: () => void;
 }
 
 const useFetchDataStore = create<FetchDataState>((set) => ({
-  data: [], 
-  setData: (newData) => set({ data: newData }),
-  resetData: () => set({ data: [] }),
+    data: null,
+    setData: (newData) => set({ data: newData }),
+    resetData: () => set({ data: null }),
 }));
 
-export default useFetchDataStore;
+export { useFetchDataStore};

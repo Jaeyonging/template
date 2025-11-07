@@ -1,15 +1,20 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./routes/Home";
+import { Home } from "./routes/home/Home";
 import "./App.css";
-import AnimatedRoutes from "./utils/AnimatedRoutes";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallback } from "./component/ErrorFallback";
 
 function App() {
   return (
     <>
-      <Suspense fallback={<div>로딩중...</div>}>
-        <AnimatedRoutes />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={<div>로딩중...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 }
