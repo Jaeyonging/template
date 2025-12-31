@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useFetchDataStore } from '../store/data';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { fetchComments } from './fetch';
 import Loading from '../lotties/Loading';
 
 export const CommentsFetcher = ({ children }: { children: React.ReactNode }) => {
     const { setData, resetData } = useFetchDataStore();
-    const { data, isLoading, isError, error } = useQuery(['comments'], () => fetchComments(), {});
+    const { data, isLoading, isError, error } = useQuery({ queryKey: ['comments'], queryFn: () => fetchComments() });
 
     useEffect(() => {
         if (data) {
